@@ -1,0 +1,28 @@
+def tiempo_cepillado(cantidad_dentrifico):
+    """
+    Determina el tiempo recomendado de cepillado en minutos basado en la cantidad de dentífrico.
+    """
+    if 0.1 <= cantidad_dentrifico <= 0.2:
+        return 3, "cepillarse durante 3 minutos"
+    elif 0.2 < cantidad_dentrifico <= 0.5:
+        return 5, "cepillarse durante 5 minutos"
+    elif cantidad_dentrifico < 0.1:
+        return None, "agregue mas dentrifico por favor"
+    elif 0.5 < cantidad_dentrifico <= 0.9:
+        return None, "tiene mucho dentrifico"
+    else:
+        return None, "Cantidad de dentífrico no válida."
+
+def cepillarse_los_dientes():
+    print("Me levanto.")
+    print("Me cambio.")
+    print("Agarro mi dentífrico y cepillo.")
+    cantidad_dentrifico = float(input("Ingrese la cantidad de dentífrico en gramos: "))
+    
+    tiempo_cepillado_recomendado, mensaje = tiempo_cepillado(cantidad_dentrifico)
+    if tiempo_cepillado_recomendado is not None:
+        print(f"Debes {mensaje}")
+    else:
+        print(mensaje)
+
+cepillarse_los_dientes()
